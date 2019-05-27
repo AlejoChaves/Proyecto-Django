@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+{% block tittle%}
+	Detalle Asignacion
+{% endblock %}
+
+{% block content %}
+<form method="POST">
+	<div class="form-group">
+		<div class="card text-center">
+			{% csrf_token %}			
+			<h3>Codigo : {{ asignacion.codigo }}</h3>
+			<h3>Fecha : {{ asignacion.fecha }}</h3>
+			<h3>Persona : {{ asignacion.persona }}</h3>
+			<h3>Recursos : {{ asignacion.recurso }}</h3>				
+		</div>
+	</div>
+</form>
+{% endblock %}

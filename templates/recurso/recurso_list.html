@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+
+{% block tittle %}Listado de recursos{% endblock %}
+
+{% block content %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Codigo</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Serie</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% if recursos %}
+	{% for recurso in recursos  %}
+    <tr>
+        <td>{{recurso.id}}</td>
+		<td>{{recurso.codigo}}</td>
+		<td>{{recurso.categoria}}</td>
+		<td>{{recurso.nombre}}</td>
+		<td>{{recurso.marca}}</td>
+    <td>{{recurso.serie}}</td>
+    </tr>
+    {% endfor %}
+	{% else %}
+	<h1>No hay registros de recursos</h1>
+
+	{% endif %}    
+  </tbody>
+</table>
+{% endblock %}

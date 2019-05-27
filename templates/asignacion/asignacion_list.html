@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+
+{% block tittle %}Asignaciones de recursos{% endblock %}
+
+{% block content %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Codigo</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Detalle</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% if asignaciones %}
+	{% for asignacion in asignaciones  %}
+    <tr>
+      <td>{{asignacion.id}}</td>
+  		<td>{{asignacion.codigo}}</td>
+  		<td>{{asignacion.fecha}}</td> 
+  		<td><a class="btn btn-primary" href="{% url 'asignacion:asignacion_detalle' asignacion.id %}">Ver</a></td>  		
+    </tr>
+  {% endfor %}
+	{% else %}
+	<h1>No hay registros de Asignaciones</h1>
+
+	{% endif %}    
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+
+{% block tittle %}Listado de personas{% endblock %}
+
+{% block content %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Direccion</th>
+      <th scope="col">Telefono</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% if personas %}
+	{% for persona in personas  %}
+    <tr>
+        <td>{{persona.id}}</td>
+		<td>{{persona.nombre}}</td>
+		<td>{{persona.apellido}}</td>
+		<td>{{persona.direccion}}</td>
+		<td>{{persona.telefono}}</td>
+    </tr>
+    {% endfor %}
+	{% else %}
+	<h1>No hay registros de personas</h1>
+
+	{% endif %}    
+  </tbody>
+</table>
+{% endblock %}
